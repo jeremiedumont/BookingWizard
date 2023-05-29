@@ -10,7 +10,7 @@ export default function PageNotFound() {
     setTimeout(() => {
       router.push("/");
     }, 3000);
-  }, []);
+  }, [router]);
 
   return (
     <div className="app-main">
