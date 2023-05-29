@@ -4,7 +4,7 @@ import {
   Automation,
   AutomationKeys,
   AutomationList,
-} from "@/modules/automations/automations.object";
+} from "@/objects/automations.object";
 import styled from "styled-components";
 
 const StyledDiscoverContainer = styled.div`
