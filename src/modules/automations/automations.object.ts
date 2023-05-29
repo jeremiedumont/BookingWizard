@@ -5,7 +5,13 @@ export enum AutomationKeys {
 }
 // Add automation keys here
 
-export const AutomationList = [
+export interface Automation {
+  key: AutomationKeys;
+  title: string;
+  content: string;
+}
+
+export const AutomationList: Automation[] = [
   {
     key: AutomationKeys.NATIONAL_HISTORY_MUSEUM,
     title: "National Histiory Museum",

@@ -4,6 +4,10 @@ interface StyledCardProps {
   size: "small" | "medium" | "large";
 }
 
+interface StyledCardListProps {
+  orientation?: "horizontal" | "vertical";
+}
+
 const getSizeClassName = ({ size }: StyledCardProps) => {
   const sizeSmall = css`
     font-size: 12px;
@@ -24,12 +28,24 @@ const getSizeClassName = ({ size }: StyledCardProps) => {
   return sizeMap[size];
 };
 
+const getOrientation = ({ orientation }: StyledCardListProps) => {
+  if (orientation === "horizontal") {
+    return css`
+      flex-direction: row;
+    `;
+  }
+
+  return css`
+    flex-direction: column;
+  `;
+};
+
 const StyledCard = styled.div<StyledCardProps>`
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  flex-basis: 25%;
+  flex-basis: 50%;
   margin-bottom: 20px;
   cursor: pointer;
   display: flex;
@@ -59,4 +75,12 @@ const StyledCardParagraph = styled.p<StyledCardProps>`
   ${getSizeClassName}
 `;
 
-export { StyledCard, StyledCardHeading, StyledCardParagraph };
+const StyledCardList = styled.div<StyledCardListProps>`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: auto;
+  padding: 1%;
+`;
+
+export { StyledCard, StyledCardHeading, StyledCardParagraph, StyledCardList };

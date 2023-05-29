@@ -13,7 +13,7 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="app-main">
-      <div className="app-layout color-primary">
+      <div className="app-layout">
         <h1 onClick={onTitleClick} style={{ cursor: "pointer" }}>
           BookingWizard
         </h1>

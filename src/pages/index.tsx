@@ -1,6 +1,18 @@
 import Card from "@/components/Card";
+import { StyledCardList } from "@/components/Card/card.style";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import styled from "styled-components";
+
+const StyledHomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Add this line */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+`;
 
 export default function Home() {
   const router = useRouter();
@@ -21,9 +33,9 @@ export default function Home() {
   useEffect(() => {}, []);
 
   return (
-    <div className="home-container">
-      <h1>Home</h1>
-      <div className="card-container">
+    <StyledHomeContainer>
+      <h1>Menu</h1>
+      <StyledCardList>
         {options.map((option) => (
           <Card
             key={option.id}
@@ -33,7 +45,7 @@ export default function Home() {
             size="large"
           />
         ))}
-      </div>
-    </div>
+      </StyledCardList>
+    </StyledHomeContainer>
   );
 }
