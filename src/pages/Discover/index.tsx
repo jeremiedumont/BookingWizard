@@ -1,10 +1,7 @@
 import Card from "@/components/Card";
 import { StyledCardList } from "@/components/Card/card.style";
-import {
-  Automation,
-  AutomationKeys,
-  AutomationList,
-} from "@/objects/automations.object";
+import { AutomationKeys, AutomationList } from "@/objects/automations.object";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 
 const StyledDiscoverContainer = styled.div`
@@ -19,11 +16,16 @@ const StyledDiscoverContainer = styled.div`
 `;
 
 export default function Discover() {
+  const router = useRouter();
+
   const handleCardClick = (cardKey: AutomationKeys) => {
     console.log(`Card with key ${cardKey} was clicked.`);
-    const automation: Automation = AutomationList.find(
-      (automation) => automation.key === cardKey
-    );
+    router.push({
+      pathname: "/Automation",
+      query: {
+        automationKey: cardKey,
+      },
+    });
   };
 
   return (
