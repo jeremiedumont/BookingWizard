@@ -56,17 +56,21 @@ const StyledCard = styled.div<StyledCardProps>`
 `;
 
 const StyledCardHeading = styled.h3<StyledCardProps>`
-  margin-bottom: 10px;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  ${getSizeClassName}
+`;
+
+const StyledCardDivider = styled.p`
   border-bottom: 1px;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
   border-color: lightgray;
-  width: 100%;
-  text-align: center;
   border-style: solid;
-  padding-bottom: 2px;
-  ${getSizeClassName}
+  width: 100%;
+  margin: 10px;
 `;
 
 const StyledCardParagraph = styled.p<StyledCardProps>`
@@ -83,4 +87,10 @@ const StyledCardList = styled.div<StyledCardListProps>`
   padding: 1%;
 `;
 
-export { StyledCard, StyledCardHeading, StyledCardParagraph, StyledCardList };
+export {
+  StyledCard,
+  StyledCardHeading,
+  StyledCardParagraph,
+  StyledCardList,
+  StyledCardDivider,
+};
