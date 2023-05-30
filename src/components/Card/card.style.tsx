@@ -41,7 +41,8 @@ const getOrientation = ({ orientation }: StyledCardListProps) => {
 };
 
 const StyledCard = styled.div<StyledCardProps>`
-  background-color: #fff;
+  background-color: #fffdfb;
+  color: #2292a4;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -84,7 +85,7 @@ const StyledCardList = styled.div<StyledCardListProps>`
   flex-wrap: wrap;
   justify-content: center;
   overflow: auto;
-  padding: 1%;
+  padding: 5%;
 `;
 
 export {

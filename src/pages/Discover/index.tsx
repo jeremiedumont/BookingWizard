@@ -30,7 +30,6 @@ export default function Discover() {
 
   return (
     <StyledDiscoverContainer>
-      <h1>Discover</h1>
       <StyledCardList>
         {AutomationList.map((card) => (
           <Card

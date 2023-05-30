@@ -11,6 +11,7 @@ const StyledHomeContainer = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  color: #f08080;
   margin: 0;
 `;
 
@@ -34,7 +35,6 @@ export default function Home() {
 
   return (
     <StyledHomeContainer>
-      <h1>Menu</h1>
       <StyledCardList>
         {options.map((option) => (
           <Card
