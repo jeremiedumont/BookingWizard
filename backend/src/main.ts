@@ -2,12 +2,11 @@ import { NestApplicationOptions } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from './app.module';
-import config from './config';
+import { ConfigurationUtil } from './utils/configuration.util';
 
 async function bootstrap() {
   const appOptions: NestApplicationOptions = {
     cors: true,
-    // logger: ['error', 'warn'],
   };
 
   const app = await NestFactory.create<NestExpressApplication>(
@@ -15,6 +14,6 @@ async function bootstrap() {
     appOptions,
   );
 
-  await app.listen(config().port);
+  await app.listen(ConfigurationUtil.getPort());
 }
 bootstrap();
