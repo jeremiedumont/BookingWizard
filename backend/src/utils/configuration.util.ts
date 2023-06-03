@@ -24,7 +24,7 @@ export class ConfigurationUtil {
       password: process.env.DATABASE_PASSWORD || 'postgres',
       database: process.env.DATABASE_DATABASE || 'booking-wizard',
       autoLoadEntities: true,
-      synchronize: isProduction,
+      synchronize: true,
     };
 
     return credentials;
