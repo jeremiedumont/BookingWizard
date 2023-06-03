@@ -1,3 +1,4 @@
+import { TestAPI } from "@/api/test";
 import Card from "@/components/Card";
 import { StyledCardList } from "@/components/Card/card.style";
 import { useRouter } from "next/router";
@@ -31,7 +32,21 @@ export default function Home() {
     },
   ];
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    //Using default fetch
+    // const getHello = async () => {
+    //   const res = await fetch("http://localhost:4000/");
+    //   const data = await res.json();
+    //   console.log(data);
+    // };
+
+    const hello = async () => {
+      const res = await TestAPI.getHello();
+      const data = await res.json();
+      console.log(data);
+    };
+    hello();
+  }, []);
 
   return (
     <StyledHomeContainer>
