@@ -25,6 +25,11 @@ export class ConfigurationUtil {
       database: process.env.DATABASE_DATABASE || 'booking-wizard',
       autoLoadEntities: true,
       synchronize: true,
+      extra: {
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      },
     };
 
     return credentials;
