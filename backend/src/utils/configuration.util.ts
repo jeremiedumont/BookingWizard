@@ -16,15 +16,19 @@ export class ConfigurationUtil {
   static getCredentials(): TypeOrmModuleOptions {
     const isProduction = ConfigurationUtil.isProduction();
 
-    const credentials: TypeOrmModuleOptions = {
+    const baseCredentials: Partial<TypeOrmModuleOptions> = {
       type: 'postgres',
       host: process.env.DATABASE_HOST || 'localhost',
       port: parseInt(process.env.DATABASE_PORT) || 5432,
-      username: process.env.DATABASE_USERNAME || 'postgres',
+      username: process.env.DATABASE_USER || 'postgres',
       password: process.env.DATABASE_PASSWORD || 'postgres',
       database: process.env.DATABASE_DATABASE || 'booking-wizard',
       autoLoadEntities: true,
       synchronize: true,
+    };
+
+    const credentialsProduction: TypeOrmModuleOptions = {
+      ...baseCredentials,
       extra: {
         ssl: {
           rejectUnauthorized: false,
@@ -32,6 +36,11 @@ export class ConfigurationUtil {
       },
     };
 
-    return credentials;
+    const credentialsDevelopment: TypeOrmModuleOptions = {
+      ...baseCredentials,
+    };
+
+    return credentialsProduction;
+    // return isProduction ? credentialsProduction : credentialsDevelopment;
   }
 }
