@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Test } from 'src/modules/test/domain/test.entity';
+import { Test } from './test.entity';
 import { TestManager } from './test.manager';
 
 @Module({
