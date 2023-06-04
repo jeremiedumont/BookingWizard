@@ -40,7 +40,6 @@ export class ConfigurationUtil {
       ...baseCredentials,
     };
 
-    return credentialsProduction;
-    // return isProduction ? credentialsProduction : credentialsDevelopment;
+    return isProduction ? credentialsProduction : credentialsDevelopment;
   }
 }
